@@ -4,16 +4,13 @@
 name: Deploy to test
 
 on:
-  push:
-    branches: [ test ]
   pull_request:
+    types: [opened, edited, milestoned]
     branches: [ test ]
 
 jobs:
   runing_tests:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [10.16.x]
