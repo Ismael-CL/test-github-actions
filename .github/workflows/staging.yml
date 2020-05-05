@@ -6,7 +6,7 @@ name: Deploy to test
 on:
   pull_request:
     types: [opened, edited, milestoned]
-    branches: [ test ]
+    branches: [ test, master, develop, demo ]
 
 jobs:
   runing_tests:
