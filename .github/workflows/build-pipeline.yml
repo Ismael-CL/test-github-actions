@@ -10,6 +10,8 @@ jobs:
     strategy:
       matrix:
         node-version: [10.16.x]
+    env:
+      working-directory: front-end
 
     steps:
     - uses: actions/checkout@v2
@@ -21,18 +23,21 @@ jobs:
 
     - name: Installing dependencies
       run: npm install
+      working-directory: ${{env.working-directory}}
 
     - name: Running tests
       run: npm test
+      working-directory: ${{env.working-directory}}
 
     - name: Building project
       run: npm run build-on:${GITHUB_REF##*/}
+      working-directory: ${{env.working-directory}}
 
     - name: Archive build as artifact
       uses: actions/upload-artifact@v1
       with:
         name: build
-        path: build
+        path: ${{env.working-directory}}/build
 
   # deploy_test:
   #   runs-on: ubuntu-latest
