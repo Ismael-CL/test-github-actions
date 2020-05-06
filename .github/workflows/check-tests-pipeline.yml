@@ -1,8 +1,9 @@
-name: Deploy to test
+name: Check tests
 
 on:
-  push:
-    branches: [ test ]
+  pull_request:
+    types: [opened, edited, reopened]
+    branches: [ test, master, develop, demo ]
 
 jobs:
   runing_tests:
@@ -17,6 +18,5 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: echo running on branch ${GITHUB_REF##*/}
     - run: npm install
     - run: npm test
