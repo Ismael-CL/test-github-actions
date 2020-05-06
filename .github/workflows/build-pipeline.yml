@@ -33,3 +33,16 @@ jobs:
       with:
         name: build
         path: build
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/test'
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: homework
+
+      - name: Deploy to S3
+        run: echo ${{secrets.AWS_S3_TEST_BUCKET}}
