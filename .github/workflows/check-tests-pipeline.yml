@@ -2,7 +2,7 @@ name: Check tests
 
 on:
   pull_request:
-    types: [opened, edited, milestoned, reopened]
+    types: [opened, edited, reopened]
     branches: [ test, master, develop, demo ]
 
 jobs:
