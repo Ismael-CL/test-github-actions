@@ -17,6 +17,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: echo running on branch ${GITHUB_REF##*/}
+    - run: echo Deploying to ${GITHUB_REF##*/}
     - run: npm install
     - run: npm test
+    - run: npm run deploy:${GITHUB_REF##*/}
