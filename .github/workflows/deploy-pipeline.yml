@@ -28,7 +28,7 @@ jobs:
     - name: Building project
       run: npm run build-on:${GITHUB_REF##*/}
 
-    - name: Archive build as artifact for ${{GITHUB_REF##*/}} environment
+    - name: Archive build as artifact
       uses: actions/upload-artifact@v1
       with:
         name: build
