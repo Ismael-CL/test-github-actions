@@ -13,14 +13,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
+
+    - name: Installing dependencies
+      run: npm install
+
+    - name: Running tests
     - run: npm test
+
+    - name: Building project
     - run: npm run build-on:${GITHUB_REF##*/}
-    - name: Archive build as artifact for ${GITHUB_REF##*/} environment
+
+    - name: Archive build as artifact for ${{GITHUB_REF##*/}} environment
       uses: actions/upload-artifact@v1
       with:
         name: build
