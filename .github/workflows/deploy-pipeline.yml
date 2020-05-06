@@ -17,12 +17,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: echo Deploying to ${GITHUB_REF##*/}
     - run: npm install
     - run: npm test
     - run: npm run build-on:${GITHUB_REF##*/}
-    - name: Archive build as artifact
+    - name: Archive build as artifact for ${GITHUB_REF##*/} environment
       uses: actions/upload-artifact@v1
       with:
-        name: ${GITHUB_REF##*/}_build
+        name: build
         path: build
