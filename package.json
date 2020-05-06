@@ -13,9 +13,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy:test": "env-cmd -f .env.staging react-scripts build",
-    "deploy:demo": "env-cmd -f .env.demo react-scripts build",
-    "deploy:master": "env-cmd -f .env.prod react-scripts build",
+    "build-on:test": "env-cmd -f .env.staging react-scripts build",
+    "build-on:demo": "env-cmd -f .env.demo react-scripts build",
+    "build-on:master": "env-cmd -f .env.prod react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
