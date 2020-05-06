@@ -6,7 +6,7 @@ on:
     branches: [ test, master, develop, demo ]
 
 jobs:
-  runing_tests:
+  running_tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
