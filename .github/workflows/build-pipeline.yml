@@ -5,7 +5,7 @@ on:
     branches: [ test, master, demo ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
