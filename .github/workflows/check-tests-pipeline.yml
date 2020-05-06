@@ -11,12 +11,21 @@ jobs:
     strategy:
       matrix:
         node-version: [10.16.x]
+    env:
+      working-directory: front-end
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm test
+
+    - name: Installing dependencies
+      run: npm install
+      working-directory: ${{env.working-directory}}
+
+    - name: Running tests
+      run: npm test
+      working-directory: ${{env.working-directory}}

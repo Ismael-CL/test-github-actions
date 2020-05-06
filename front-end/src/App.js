@@ -9,7 +9,7 @@ function App() {
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>
-          Youre now on <code>{REACT_APP_HOLIS}</code> environment.
+          Youre now on <code>{REACT_APP_HOLIS}</code> environment!
         </p>
         <a
           className='App-link'
